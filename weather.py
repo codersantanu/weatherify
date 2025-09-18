@@ -4,24 +4,24 @@ from dotenv import load_dotenv
 
 def get_weather(city):
     load_dotenv()
-    API_KEY=os.getenv("API_KEY")
-    URL=f"https://api.openweathermap.org/data/2.5/weather?q={city}&appid={API_KEY}&units=metric"
+    API_KEY = os.getenv("API_KEY")
+    URL = f"https://api.openweathermap.org/data/2.5/weather?q={city}&appid={API_KEY}&units=metric"
     
     try:
         response = requests.get(URL)
-        data=response.json()
-        if response.status_code==200:
+        data = response.json()
+        if response.status_code == 200:
             print(f"Weather in {data['name']},{data['sys']['country']}:")
             print(f"Temperature: {data['main']['temp']}°C")
             print(f"Humidity :{data['main']['humidity']}%")
-            print(f"Weather : {data ["Weather"][0]["description"]}")
+            print(f"Weather : {data['weather'][0]['description']}")
             print(f"Wind Speed : {data['wind']['speed']} m/s")
         else:
-            print(f"City{city} not found. Please check the city name and try again.")
+            print(f"City {city} not found. Please check the city name and try again.")
             
     except Exception as e:
-        print("Something went wrong. Please try again later.")
+        print(f"Something went wrong. Please try again later. Error: {e}")
         
-if __name__=="__main__":
-    city=input("Enter city name: ")
+if __name__ == "__main__":
+    city = input("Enter city name: ")
     get_weather(city)
