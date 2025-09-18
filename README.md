@@ -20,7 +20,7 @@ ________________________________________
 ________________________________________
 📦 Installation & Setup
 1.	Clone the repository:
-2.	git clone https://github.com/codersantanu/weatherify.gitcd weatherify
+2.	git clone https://github.com/codersantanu/weatherify.git
 3.	Install dependencies:
 4.	pip install requests
 5.	Get a free API key from OpenWeatherMap
