@@ -19,3 +19,6 @@ def get_weather(city):
     except Exception as e:
         print("Something went wrong. Please try again later.")
         
+if __name__=="__main__":
+    city=input("Enter city name: ")
+    get_weather(city)
